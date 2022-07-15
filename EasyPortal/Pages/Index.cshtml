@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">EasyPortal</h1>
+    <h2> Welcome @Model.User.FirstName </h2>
+</div>
+
+<!-- First go at gard grid-->
+<div class="card-columns mx-auto">
+
+@foreach (var portalItems in Model.Items){
+    <div class="card p-x-4" style="width:fit-content">
+        <div class="card-img" style="background-image: url('@portalItems.IconURL');"></div>
+        <div class="card-body"> 
+            <h2 class="card-title">@portalItems.Title</h2>
+            <a href="@portalItems.Destination" class="stretched-link"></a>
+        </div>
+    </div>
+}
+
+</div>
+
+
+<!-- Second go at Card Grid
+
+<div class="row">
+    @foreach(var portalItems in Model.Items){
+    <div class="col-sm-6" style="height:fit-content">
+        <div class="card" style="width:fit-content">
+            <div class="card-img-top" src=@portalItems.IconURL></div>
+            <div class="card-footer">
+                @portalItems.Title
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+-->
